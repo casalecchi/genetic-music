@@ -131,7 +131,7 @@ def fitness(genome: Genome, s: Server, num_bars: int, num_notes: int, num_steps:
 def save_genome_to_midi(filename: str, genome: Genome, num_bars: int, num_notes: int, num_steps: int,
                         pauses: bool, key: str, scale: str, root: int, bpm: int):
     """Function to save Genomes created to MIDIFiles."""
-    
+
     melody = genome_to_melody(genome, num_bars, num_notes, num_steps, pauses, key, scale, root)
 
     if len(melody["notes"][0]) != len(melody["beat"]) or len(melody["notes"][0]) != len(melody["velocity"]):
@@ -156,7 +156,3 @@ def save_genome_to_midi(filename: str, genome: Genome, num_bars: int, num_notes:
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, "wb") as f:
         mf.writeFile(f)
-
-
-s = Server().boot()
-print(fitness([1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1], s, 1, 4, 1, False, "C", "major", 1, 100))
