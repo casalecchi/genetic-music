@@ -50,8 +50,8 @@ def main(num_bars: int, num_notes: int, num_steps: int, pauses: bool, key: str, 
             # crossover to create new genomes
             parents = selection_pair(population, fitness_lookup)
             offspring_a, offspring_b = single_point_crossover(parents[0], parents[1])
-            offspring_a = mutation(offspring_a, num=num_mutations, probability=mutation_probability)
-            offspring_b = mutation(offspring_b, num=num_mutations, probability=mutation_probability)
+            offspring_a = mutation(offspring_a, num_mutations, mutation_probability)
+            offspring_b = mutation(offspring_b, num_mutations, mutation_probability)
             next_generation += [offspring_a, offspring_b]
 
         print(f"population {population_id} done")
